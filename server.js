@@ -9,10 +9,10 @@ app.listen(port, function () {
   console.log("Server listening on port:" + port);
 });
 
-app.get("*", function (request, result) {
-  result.sendFile("./build/index.html");
-});
-
 app.get("/api/products", function (request, result) {
   result.send("Products API");
+});
+
+app.get("*", function (request, result) {
+  result.sendFile("./build/index.html");
 });
