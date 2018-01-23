@@ -13,6 +13,6 @@ app.get("/api", function (request, result) {
 
 app.use("/static", express.static('build/static'));
 
-app.get("/", function (request, result) {
-  result.sendFile("./build/index.html");
+app.get("*", function (request, result) {
+  result.sendFile(__dirname + "/build/index.html");
 });
