@@ -3,16 +3,16 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-app.use(express.static('build'));
-
 app.listen(port, function () {
   console.log("Server listening on port:" + port);
 });
 
-app.get("/api/products", function (request, result) {
+app.get("/api", function (request, result) {
   result.send("Products API");
 });
 
-app.get("*", function (request, result) {
+app.use("/static", express.static('build/static'));
+
+app.get("/", function (request, result) {
   result.sendFile("./build/index.html");
 });
